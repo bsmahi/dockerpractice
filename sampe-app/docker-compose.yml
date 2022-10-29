@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+   sample-app-db: 
+      image: mysql:8.0.28
+      environment:
+        MYSQL_DATABASE: 'sample-app'
+        MYSQL_ROOT_PASSWORD: 'password'
+      ports:
+       - '3306:3306'
+      expose:
+       - '3306'
+   sample-app-node:
+      build: ./node
+      ports:
+        - "3000:3000"
